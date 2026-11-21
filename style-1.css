@@ -1,0 +1,121 @@
+/* ---------- رنگ‌ها (اینجا را عوض کنید) ---------- */
+:root {
+  --bg: #e6f0ec;
+  --surface: #ffffff;
+  --ink: #12332b;
+  --muted: #55736a;
+  --accent: #e4572e;
+  --line: #c5d8d0;
+  --radius: 16px;
+  --font: "Vazirmatn", Tahoma, "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1f1a;
+    --surface: #14302a;
+    --ink: #e9f4f0;
+    --muted: #9bb8ae;
+    --accent: #ff7a50;
+    --line: #25483f;
+  }
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 1rem;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  line-height: 1.8;
+}
+
+a { color: inherit; text-decoration: none; }
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+.card {
+  width: 100%;
+  max-width: 26rem;
+}
+
+/* ---------- پروفایل ---------- */
+.profile { text-align: center; margin-bottom: 2rem; }
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 6rem;
+  height: 6rem;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+/* اگه عکس گذاشتی، این استایل رو می‌گیره */
+.profile img {
+  display: block;
+  width: 6rem;
+  height: 6rem;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile h1 { margin: 0; font-size: 1.6rem; font-weight: 900; }
+.profile p { margin: 0.25rem 0 0; color: var(--muted); }
+
+/* ---------- لینک‌ها ---------- */
+.links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.links a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.95rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  border-inline-start: 5px solid var(--accent);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.links a:hover { border-color: var(--accent); transform: translateY(-2px); }
+.links a:active { transform: scale(0.98); }
+
+.label { font-weight: 700; }
+
+.tag {
+  color: var(--muted);
+  font-size: 0.85rem;
+  direction: ltr;
+}
+
+footer { margin-top: 2rem; text-align: center; color: var(--muted); font-size: 0.85rem; }
+footer p { margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .links a { transition: none; }
+  .links a:hover { transform: none; }
+}
